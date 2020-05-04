@@ -6,6 +6,26 @@ Los datasets utilizados se encuentran en la carpeta [datasets](https://github.co
 
 ### Martin Fierro
 Para empezar la generación de texto con estilo en base a caracteres empezamos tomando el martín Fierro. Es un poema gauchesco con 2.741 líneas. Para agrandar un poco más el dataset agregamos también la vuelta de martín fierro y Fausto de Estanislao Fernandez. El resultado fue un texto 8.692 líneas, 41.454 palabras y 20.8161 caracteres, incluyendo la numeración de cada verso de una estrofa
+```
+en los guevos de gallinas,
+porque el mal nunca se silto.
+
+-"No me vido con arreglar.
+
+y al ver cercano su entierro,
+con igualda, pa ganarse,
+y a cada paso rumpico
+No hay un aumenio del muchacho
+pues en mis libros adentros,
+que viene a todas las motas
+"esto es la justicia entera.
+me hinquilque de esto no mas
+y a la pun....a ia desgrenia
+no se llevan al gobierno
+no lo dejamos landas,
+vamos a ver que tal lo hace,
+le dije:-"Pa su aguela
+```
 
 ### FreeStyle
 Este sería el dataset más fiel al objetivo final. Es una transcripción de Batallas de Gallo obtenidas de [esta wiki](https://batallas-de-rap-lyrics.fandom.com/es/wiki/Batallas_de_Rap_Lyrics_Wiki). El archivo que reúne todas tiene unas 7.780 líneas, 42.778 palabras y 23.2103 caracteres
