@@ -23,6 +23,10 @@ Se obtuvo de [esta pagina](https://www.hhgroups.com/) que almacena letras de can
 
 GRU con Martín Fierro: El primer intento fue con un modelo que generaba texto con estilo del martín fierro. La arquitectura era una capa de embedding, con 3 GRUs y una densa al final. Trabajaba a nivel de caracteres. No pudo tomar rimas ni métricas, pero si formaba palabras con estilo gauchesco aunque algunas no existieran
 
+---
+
 Textgenrnn: Se encuentra en la carpeta [textgenrnn_example](https://github.com/midusi/freestyle_generator/tree/master/textgenrnn_example) y se utilizó [este módulo](https://github.com/minimaxir/textgenrnn) trabajando con con el dataset de HipHop. Primero usamos el archivo más chico. Probamos con algunas variaciones pero los modelos eran de 2 a 3 capas LSTM de 128 unidades y la dimensión del embedding en 100. También probamos incrementando la cantidad de unidades por capa, y con LSTM bidireccionales. Una vez que tuvimos le dataset más grande de canciones intentamos entrenar con eso, pero los tiempos excedían la duración de la sesión en Google Collab.
+
+---
 
 Poetry-Generator:  Acá pudimos probar las letras de Freestyle, que no son muchas y sacamos buenos resultados. Los versos riman y al trabajar con palabras no genera palabras inexistentes. Con un modelo de markov genera líneas de texto. Por otro lado usando un diccionario de rimas en inglés determina qué finales de palabras riman con una línea. De esa forma entrena a una LSTM muy chica que sólo toma la cantidad de sílabas de una línea y las rimas posibles para determinar qué tipo de línea rima con una dada. Una vez entrenada, recorre el texto generado por el modelo de Markov evaluando qué línea incorporar para ir generando un verso que rime. Esta implementacion se encuentra en la carpeta [markov_LSTM_implementation](https://github.com/midusi/freestyle_generator/tree/master/markov_LSTM_implementation), basada en [este cuaderno de kaggle](https://www.kaggle.com/paultimothymooney/poetry-generator-rnn-markov).
