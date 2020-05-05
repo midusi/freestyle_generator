@@ -5,11 +5,11 @@
 Los datasets utilizados se encuentran en la carpeta [datasets](https://github.com/midusi/freestyle_generator/tree/master/datasets), y son los siguientes:
 
 ### Martin Fierro
-Para empezar la generación de texto con estilo en base a caracteres empezamos tomando el martín Fierro. Es un poema gauchesco con 2.741 líneas. Para agrandar un poco más el dataset agregamos también la vuelta de martín fierro y Fausto de Estanislao Fernandez. El resultado fue un texto 8.692 líneas, 41.454 palabras y 20.8161 caracteres, incluyendo la numeración de cada verso de una estrofa
+Para empezar la generación de texto con estilo en base a caracteres empezamos tomando el martín Fierro. Es un poema gauchesco con 2.741 líneas. Para agrandar un poco más el dataset agregamos también la vuelta de martín fierro y Fausto de Estanislao Fernandez. El resultado fue un texto 8.692 líneas, 41.454 palabras y 208.161 caracteres, incluyendo la numeración de cada verso de una estrofa
 
 
 ### FreeStyle
-Este sería el dataset más fiel al objetivo final. Es una transcripción de Batallas de Gallo obtenidas de [esta wiki](https://batallas-de-rap-lyrics.fandom.com/es/wiki/Batallas_de_Rap_Lyrics_Wiki). El archivo que reúne todas tiene unas 7.780 líneas, 42.778 palabras y 23.2103 caracteres
+Este sería el dataset más fiel al objetivo final. Es una transcripción de Batallas de Gallo obtenidas de [esta wiki](https://batallas-de-rap-lyrics.fandom.com/es/wiki/Batallas_de_Rap_Lyrics_Wiki). El archivo que reúne todas tiene unas 7.780 líneas, 42.778 palabras y 232.103 caracteres
 
 ### HipHop
 Se obtuvo de [esta pagina](https://www.hhgroups.com/) que almacena letras de canciones de hip hop. Primero pudimos descargar algunas canciones y armar un archivo de 6.845 líneas, 45.408 palabras y 24.2769 caracteres. Luego obtuvimos el archivo [concatenated.txt](https://github.com/midusi/freestyle_generator/blob/master/datasets/Hip%20Hop%20lyrics/concatenated.txt) contiene todas las canciones de este genero de dicha pagina(cerca de 10.000) y consta de 487.137 líneas y 3.362.970 palabras. 
