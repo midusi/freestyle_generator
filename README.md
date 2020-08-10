@@ -21,9 +21,10 @@ Para empezar la generación de texto con estilo en base a caracteres empezamos t
 
 ## Modelos Usados
 
-*GRU en base a caracteres. Primer modelo, tomado de https://github.com/sergioburdisso/recurrently-happy-rnn . 
-*textgenrnn. Es un módulo de python que trabaja sobre Keras para armar distintas variaciones de RNN. Permite trabajar a nivel de palabras o caracteres
-*Poetry-Generator. Modelo que usa Markov para generar texto y una LSTM que usa una puntuación de rimas basada en un diccionario de rimas en inglés para generar versos
+* GRU en base a caracteres: Se probó inicialmente este modelo tomado de https://github.com/sergioburdisso/recurrently-happy-rnn .
+* textgenrnn: Es un módulo de python que trabaja sobre Keras para armar distintas variaciones de RNN. Permite trabajar a nivel de palabras o caracteres
+* Poetry-Generator (Markov + LSTM): Modelo que usa Markov para generar texto y una LSTM que predice la estructura de los versos
+* LSTM: Se utilizaron redes LSTM para la generación de texto, utilizando distintas variantes que se encuentran en los archivos dentro de la carpeta models/LSTM. Se realizaron pruebas generando texo de a palabras y de a sílabas, y se utilizó una función que favorece las lineas que riman.
 
 ## Experimentos
 
