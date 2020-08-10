@@ -9,7 +9,11 @@ Para empezar la generación de texto con estilo en base a caracteres empezamos t
 
 
 ### FreeStyle
-Este sería el dataset más fiel al objetivo final. Es una transcripción de Batallas de Gallo obtenidas de [esta wiki](https://batallas-de-rap-lyrics.fandom.com/es/wiki/Batallas_de_Rap_Lyrics_Wiki). El archivo que reúne todas tiene unas 7.780 líneas, 42.778 palabras y 232.103 caracteres
+Este sería el dataset más fiel al objetivo final. Contiene letras de batallas de rap de la FMS Argentina 2018/2019, FMS Argentina 2019 y FMS España 2018/2019, corrigiendolas a partir de las transcripciones autogeneradas de Youtube.
+También cuenta con las transcripciones de batallas encontradas en [esta wiki](https://batallas-de-rap-lyrics.fandom.com/es/wiki/Batallas_de_Rap_Lyrics_Wiki).
+Además se incluyeron las sesiones de freestyle de distintos freestylers producidas por bizarrap.
+
+El archivo que reúne todas las letras tiene unas 9.865 líneas, 65.721 palabras y 347.310 caracteres
 
 ### HipHop
 Se obtuvo de [esta pagina](https://www.hhgroups.com/) que almacena letras de canciones de hip hop. Primero pudimos descargar algunas canciones y armar un archivo de 6.845 líneas, 45.408 palabras y 24.2769 caracteres. Luego obtuvimos el archivo [concatenated.txt](https://github.com/midusi/freestyle_generator/blob/master/datasets/Hip%20Hop%20lyrics/concatenated.txt) contiene todas las canciones de este genero de dicha pagina(cerca de 10.000) y consta de 487.137 líneas y 3.362.970 palabras. 
