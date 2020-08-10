@@ -1,22 +1,23 @@
 # freestyle_generator
 
+En este experimento se busca implementar un modelo generador de texto que replique el estilo freestyle utilizado en las batallas de rap.
+
 ## Datasets usados
 
 Los datasets utilizados se encuentran en la carpeta [datasets](https://github.com/midusi/freestyle_generator/tree/master/datasets), y son los siguientes:
 
-### Martin Fierro
-Para empezar la generación de texto con estilo en base a caracteres empezamos tomando el martín Fierro. Es un poema gauchesco con 2.741 líneas. Para agrandar un poco más el dataset agregamos también la vuelta de martín fierro y Fausto de Estanislao Fernandez. El resultado fue un texto 8.692 líneas, 41.454 palabras y 208.161 caracteres, incluyendo la numeración de cada verso de una estrofa
-
-
 ### FreeStyle
-Este sería el dataset más fiel al objetivo final. Contiene letras de batallas de rap de la FMS Argentina 2018/2019, FMS Argentina 2019 y FMS España 2018/2019, corrigiendolas a partir de las transcripciones autogeneradas de Youtube.
+Este es el dataset más fiel al objetivo final. Contiene letras de batallas de rap de la FMS Argentina 2018/2019, FMS Argentina 2019 y FMS España 2018/2019, corrigiendolas a partir de las transcripciones autogeneradas de Youtube.
 También cuenta con las transcripciones de batallas encontradas en [esta wiki](https://batallas-de-rap-lyrics.fandom.com/es/wiki/Batallas_de_Rap_Lyrics_Wiki).
 Además se incluyeron las sesiones de freestyle de distintos freestylers producidas por bizarrap.
 
 El archivo que reúne todas las letras tiene unas 9.865 líneas, 65.721 palabras y 347.310 caracteres
 
 ### HipHop
-Se obtuvo de [esta pagina](https://www.hhgroups.com/) que almacena letras de canciones de hip hop. Primero pudimos descargar algunas canciones y armar un archivo de 6.845 líneas, 45.408 palabras y 24.2769 caracteres. Luego obtuvimos el archivo [concatenated.txt](https://github.com/midusi/freestyle_generator/blob/master/datasets/Hip%20Hop%20lyrics/concatenated.txt) contiene todas las canciones de este genero de dicha pagina(cerca de 10.000) y consta de 487.137 líneas y 3.362.970 palabras. 
+Un dataset mucho mayor al anterior que obtuvo de [esta pagina](https://www.hhgroups.com/) que almacena letras de canciones de hip hop. El archivo [concatenated.txt](https://github.com/midusi/freestyle_generator/blob/master/datasets/Hip%20Hop%20lyrics/concatenated.txt) contiene todas las canciones de este genero de dicha pagina (cerca de 10.000) y consta de 487.137 líneas y 3.362.970 palabras. Este dataset se utilizó para comparar los experimentos realizados con el dataset anterior.
+
+### Martin Fierro
+Para empezar la generación de texto con estilo en base a caracteres empezamos tomando el martín Fierro. Es un poema gauchesco con 2.741 líneas. Para agrandar un poco más el dataset agregamos también la vuelta de martín fierro y Fausto de Estanislao Fernandez. El resultado fue un texto 8.692 líneas, 41.454 palabras y 208.161 caracteres, incluyendo la numeración de cada verso de una estrofa
 
 ## Modelos Usados
 
