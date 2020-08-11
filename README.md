@@ -21,14 +21,16 @@ Para empezar la generación de texto con estilo en base a caracteres empezamos t
 
 ## Modelos Usados
 
+Aquí se describen los modelos a lo largo del proyecto. El detalle de la experimentación realizada con cada uno se encuentra en la sección [experimentos](https://github.com/midusi/freestyle_generator#experimentos).
+
+* LSTM: Los principales experimentos se llevaron a cabo utilizando redes LSTM para la generación de texto, con distintas variantes que se encuentran en los archivos dentro de la carpeta models/LSTM. Se realizaron pruebas generando texo de a palabras y de a sílabas, y se buscó manipular la salida de la red para favorecer las lineas que riman.
 * GRU en base a caracteres: Se probó inicialmente este modelo tomado de https://github.com/sergioburdisso/recurrently-happy-rnn .
 * textgenrnn: Es un módulo de python que trabaja sobre Keras para armar distintas variaciones de RNN. Permite trabajar a nivel de palabras o caracteres
 * Poetry-Generator (Markov + LSTM): Modelo que usa Markov para generar texto y una LSTM que predice la estructura de los versos
-* LSTM: Se utilizaron redes LSTM para la generación de texto, utilizando distintas variantes que se encuentran en los archivos dentro de la carpeta models/LSTM. Se realizaron pruebas generando texo de a palabras y de a sílabas, y se utilizó una función que favorece las lineas que riman.
 
 ## Experimentos
 
-GRU con Martín Fierro: El primer intento fue con un modelo que generaba texto con estilo del martín fierro. La arquitectura era una capa de embedding, con 3 GRUs y una densa al final. Trabajaba a nivel de caracteres. No pudo tomar rimas ni métricas, pero si formaba palabras con estilo gauchesco aunque algunas no existieran
+GRU con Martín Fierro: El primer experimento para familiarizarse con la generación de texto fue el correr un modelo generador de texto con estilo del libro Martín Fierro definido en [este repositorio](https://github.com/sergioburdisso/recurrently-happy-rnn). La arquitectura era una capa de embedding, con 3 GRUs y una densa al final. Trabajaba a nivel de caracteres. Fue capaz de formar texto y palabras con estilo gauchesco (aunque algunas no existieran), aunque no fue capaz de generar texto que rime.
 ```
 en los guevos de gallinas,
 porque el mal nunca se silto.
