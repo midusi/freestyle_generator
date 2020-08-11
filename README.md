@@ -61,5 +61,6 @@ Textgenrnn: Se encuentra en la carpeta [textgenrnn_example](https://github.com/m
 Poetry-Generator:  Este experimento se realizó a partir de [este cuaderno de Kaggle](https://www.kaggle.com/paultimothymooney/poetry-generator-rnn-markov) donde se entrena un modelo de cadenas de markov para generar lineas de forma independiente, y una LSTM para que prediga la cantidad de sílabas que tendrá una linea en función de la anterior.
 Luego, se genera una linea inicial y cada linea siguiente se elige primero generando muchas posibles lineas y puntuandolas en función de
 * Que su cantidad de sílabas coincida con las predichas por la LSTM para la linea anterior
-* Que su última palabra rime con la última palabra de la linea anterior (en función de un diccionario de rimas en inglés, pero que de cualquier forma resultó medianamente efectivo en español)
+* Que su última palabra rime con la última palabra de la linea anterior (en función de un diccionario de rimas en inglés, pero que de cualquier forma resultó medianamente efectivo en español).
+
 Los versos generados de esta forma riman y al trabajar con palabras no genera palabras inexistentes, sin embargo, no guardan relación alguna entre ellos o sus rimas.
