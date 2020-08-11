@@ -17,16 +17,16 @@ El archivo que reúne todas las letras tiene unas 9.865 líneas, 65.721 palabras
 Un dataset mucho mayor al anterior que obtuvo de [esta pagina](https://www.hhgroups.com/) que almacena letras de canciones de hip hop. El archivo [concatenated.txt](https://github.com/midusi/freestyle_generator/blob/master/datasets/Hip%20Hop%20lyrics/concatenated.txt) contiene todas las canciones de este genero de dicha pagina (cerca de 10.000) y consta de 487.137 líneas y 3.362.970 palabras. Este dataset se utilizó para comparar los experimentos realizados con el dataset anterior.
 
 ### Martin Fierro
-Para empezar la generación de texto con estilo en base a caracteres empezamos tomando el martín Fierro. Es un poema gauchesco con 2.741 líneas. Para agrandar un poco más el dataset agregamos también la vuelta de martín fierro y Fausto de Estanislao Fernandez. El resultado fue un texto 8.692 líneas, 41.454 palabras y 208.161 caracteres, incluyendo la numeración de cada verso de una estrofa
+Para comenzar la generación de texto a partir de un experimento ya realizado comenzamos tomando el Martín Fierro. Es un poema gauchesco con 2.741 líneas. Para agrandar un poco más el dataset agregamos también la vuelta de martín fierro y Fausto de Estanislao Fernandez. El resultado fue un texto 8.692 líneas, 41.454 palabras y 208.161 caracteres, incluyendo la numeración de cada verso de una estrofa
 
 ## Modelos Usados
 
 Aquí se describen los modelos a lo largo del proyecto. El detalle de la experimentación realizada con cada uno se encuentra en la sección [experimentos](https://github.com/midusi/freestyle_generator#experimentos).
 
-* LSTM: Los principales experimentos se llevaron a cabo utilizando redes LSTM para la generación de texto, con distintas variantes que se encuentran en los archivos dentro de la carpeta models/LSTM. Se realizaron pruebas generando texo de a palabras y de a sílabas, y se buscó manipular la salida de la red para favorecer las lineas que riman.
+* LSTM: Los principales experimentos se llevaron a cabo utilizando redes LSTM para la generación de texto, con distintas variantes que se encuentran en los archivos dentro de la carpeta implementations/LSTM. Se realizaron pruebas generando texo de a palabras y de a sílabas, y se buscó manipular la salida de la red para favorecer las lineas que riman.
 * GRU en base a caracteres: Se probó inicialmente este modelo tomado de https://github.com/sergioburdisso/recurrently-happy-rnn .
 * textgenrnn: Es un módulo de python que trabaja sobre Keras para armar distintas variaciones de RNN. Permite trabajar a nivel de palabras o caracteres
-* Poetry-Generator (Markov + LSTM): Modelo que usa Markov para generar texto y una LSTM que predice la estructura de los versos
+* Markov + LSTM (Poetry-Generator): Modelo que usa Markov para generar texto y una LSTM que predice la estructura de los versos
 
 ## Experimentos
 
@@ -58,4 +58,8 @@ Textgenrnn: Se encuentra en la carpeta [textgenrnn_example](https://github.com/m
 
 ---
 
-Poetry-Generator:  Acá pudimos probar las letras de Freestyle, que no son muchas y sacamos buenos resultados. Los versos riman y al trabajar con palabras no genera palabras inexistentes. Con un modelo de markov genera líneas de texto. Por otro lado usando un diccionario de rimas en inglés determina qué finales de palabras riman con una línea. De esa forma entrena a una LSTM muy chica que sólo toma la cantidad de sílabas de una línea y las rimas posibles para determinar qué tipo de línea rima con una dada. Una vez entrenada, recorre el texto generado por el modelo de Markov evaluando qué línea incorporar para ir generando un verso que rime. Esta implementacion se encuentra en la carpeta [markov_LSTM_implementation](https://github.com/midusi/freestyle_generator/tree/master/markov_LSTM_implementation), basada en [este cuaderno de kaggle](https://www.kaggle.com/paultimothymooney/poetry-generator-rnn-markov).
+Poetry-Generator:  Este experimento se realizó a partir de [este cuaderno de Kaggle](https://www.kaggle.com/paultimothymooney/poetry-generator-rnn-markov) donde se entrena un modelo de cadenas de markov para generar lineas de forma independiente, y una LSTM para que prediga la cantidad de sílabas que tendrá una linea en función de la anterior.
+Luego, se genera una linea inicial y cada linea siguiente se elige primero generando muchas posibles lineas y puntuandolas en función de
+* Que su cantidad de sílabas coincida con las predichas por la LSTM para la linea anterior
+* Que su última palabra rime con la última palabra de la linea anterior (en función de un diccionario de rimas en inglés, pero que de cualquier forma resultó medianamente efectivo en español)
+Los versos generados de esta forma riman y al trabajar con palabras no genera palabras inexistentes, sin embargo, no guardan relación alguna entre ellos o sus rimas.
