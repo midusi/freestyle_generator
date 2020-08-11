@@ -54,7 +54,8 @@ le dije:-"Pa su aguela
 
 ---
 
-Textgenrnn: Se encuentra en la carpeta [textgenrnn_example](https://github.com/midusi/freestyle_generator/tree/master/textgenrnn_example) y se utilizó [este módulo](https://github.com/minimaxir/textgenrnn) trabajando con con el dataset de HipHop. Primero usamos el archivo más chico. Probamos con algunas variaciones pero los modelos eran de 2 a 3 capas LSTM de 128 unidades y la dimensión del embedding en 100. También probamos incrementando la cantidad de unidades por capa, y con LSTM bidireccionales. Una vez que tuvimos le dataset más grande de canciones intentamos entrenar con eso, pero los tiempos excedían la duración de la sesión en Google Collab.
+Textgenrnn: Se encuentra en la carpeta [textgenrnn_example](https://github.com/midusi/freestyle_generator/tree/master/textgenrnn_example) y se utilizó [este módulo](https://github.com/minimaxir/textgenrnn) trabajando con con el dataset de HipHop. Se probaron algunas variaciones de los modelos que fueron de 2 a 3 capas LSTM de 128 unidades y con una dimensión del embedding en 100. También se probó incrementando la cantidad de unidades por capa, y con LSTM bidireccionales.
+Al igual que el caso anterior, el texto generado era del estilo esperado, pero no se logró generar texto que rime.
 
 ---
 
@@ -64,3 +65,9 @@ Luego, se genera una linea inicial y cada linea siguiente se elige primero gener
 * Que su última palabra rime con la última palabra de la linea anterior (en función de un diccionario de rimas en inglés, pero que de cualquier forma resultó medianamente efectivo en español).
 
 Los versos generados de esta forma riman y al trabajar con palabras no genera palabras inexistentes, sin embargo, no guardan relación alguna entre ellos o sus rimas.
+
+---
+
+Pruebas con LSTMs: Se realizaron distintas pruebas utilizando modelos LSTM para la generación de texto, tomando como referencia inicialmente lo descrito en [este artículo](https://medium.com/coinmonks/word-level-lstm-text-generator-creating-automatic-song-lyrics-with-neural-networks-b8a1617104fb). Siendo que en principio, el resultado obtenido fue similar al generado por el de textgenrnn, se optó por alterar las predicciones de las LSTM para favorecer los versos que rimen. Para esto se realizaron dos modificaciones:
+* Puntuacion de rimas
+* Generación invertida
