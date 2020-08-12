@@ -30,7 +30,8 @@ Aquí se describen los modelos a lo largo del proyecto. El detalle de la experim
 
 ## Experimentos
 
-GRU con Martín Fierro: El primer experimento para familiarizarse con la generación de texto fue el correr un modelo generador de texto con estilo del libro Martín Fierro definido en [este repositorio](https://github.com/sergioburdisso/recurrently-happy-rnn). La arquitectura era una capa de embedding, con 3 GRUs y una densa al final. Trabajaba a nivel de caracteres. Fue capaz de formar texto y palabras con estilo gauchesco (aunque algunas no existieran), aunque no fue capaz de generar texto que rime.
+### GRU con Martín Fierro
+El primer experimento para familiarizarse con la generación de texto fue el correr un modelo generador de texto con estilo del libro Martín Fierro definido en [este repositorio](https://github.com/sergioburdisso/recurrently-happy-rnn). La arquitectura era una capa de embedding, con 3 GRUs y una densa al final. Trabajaba a nivel de caracteres. Fue capaz de formar texto y palabras con estilo gauchesco (aunque algunas no existieran), aunque no fue capaz de generar texto que rime.
 ```
 en los guevos de gallinas,
 porque el mal nunca se silto.
@@ -54,12 +55,29 @@ le dije:-"Pa su aguela
 
 ---
 
-Textgenrnn: Se encuentra en la carpeta [textgenrnn_example](https://github.com/midusi/freestyle_generator/tree/master/textgenrnn_example) y se utilizó [este módulo](https://github.com/minimaxir/textgenrnn) trabajando con con el dataset de HipHop. Primero usamos el archivo más chico. Probamos con algunas variaciones pero los modelos eran de 2 a 3 capas LSTM de 128 unidades y la dimensión del embedding en 100. También probamos incrementando la cantidad de unidades por capa, y con LSTM bidireccionales. Una vez que tuvimos le dataset más grande de canciones intentamos entrenar con eso, pero los tiempos excedían la duración de la sesión en Google Collab.
+### Textgenrnn
+Se encuentra en la carpeta [textgenrnn_example](https://github.com/midusi/freestyle_generator/tree/master/textgenrnn_example) y se utilizó [este módulo](https://github.com/minimaxir/textgenrnn) trabajando con con el dataset de HipHop. Se probaron algunas variaciones de los modelos que fueron de 2 a 3 capas LSTM de 128 unidades y con una dimensión del embedding en 100. También se probó incrementando la cantidad de unidades por capa, y con LSTM bidireccionales.
+Al igual que el caso anterior, el texto generado era del estilo esperado, pero no se logró generar texto que rime.
 
 ---
 
-Poetry-Generator:  Este experimento se realizó a partir de [este cuaderno de Kaggle](https://www.kaggle.com/paultimothymooney/poetry-generator-rnn-markov) donde se entrena un modelo de cadenas de markov para generar lineas de forma independiente, y una LSTM para que prediga la cantidad de sílabas que tendrá una linea en función de la anterior.
+### Poetry-Generator
+Este experimento se realizó a partir de [este cuaderno de Kaggle](https://www.kaggle.com/paultimothymooney/poetry-generator-rnn-markov) donde se entrena un modelo de cadenas de markov para generar lineas de forma independiente, y una LSTM para que prediga la cantidad de sílabas que tendrá una linea en función de la anterior.
 Luego, se genera una linea inicial y cada linea siguiente se elige primero generando muchas posibles lineas y puntuandolas en función de
 * Que su cantidad de sílabas coincida con las predichas por la LSTM para la linea anterior
-* Que su última palabra rime con la última palabra de la linea anterior (en función de un diccionario de rimas en inglés, pero que de cualquier forma resultó medianamente efectivo en español)
+* Que su última palabra rime con la última palabra de la linea anterior (en función de un diccionario de rimas en inglés, pero que de cualquier forma resultó medianamente efectivo en español).
+
 Los versos generados de esta forma riman y al trabajar con palabras no genera palabras inexistentes, sin embargo, no guardan relación alguna entre ellos o sus rimas.
+
+---
+
+### LSTMs con alteración para lograr rimas
+Se realizaron distintas pruebas utilizando modelos LSTM para la generación de texto, tomando como referencia inicialmente lo descrito en [este artículo](https://medium.com/coinmonks/word-level-lstm-text-generator-creating-automatic-song-lyrics-with-neural-networks-b8a1617104fb). Se realizaron pruebas con modelos que predicen en base a palabras y en base a sílabas, utilizando codificación one-hot de las palabras y embeddings. Estas pruebas se encuentran en la carpeta implementations/LSTM.
+Siendo que en principio, el resultado obtenido fue similar al generado por el de textgenrnn, se optó por alterar las predicciones de las LSTM para favorecer los versos que rimen. Para esto se realizaron dos modificaciones:
+* Puntuacion de rimas: Se implementó una función que determinaba si dos palabras (o sílabas) riman, y esto se utilizó para aumentar la probabilidad asignada a una palabra (o sílaba) cuando esta es la última de una linea, si es que rima con la última palabra de un verso anterior.
+* Generación invertida: Uno de los problemas que se presentó al momento de implementar el punto anterior fue que al modificar las puntuaciones devueltas por la red para la última palabra, si bien se lograba que esta rimara, muchas veces se observaba una disociación fuerte entre esa palabra y el resto de la frase. Para atacar este problema se decidió entrenar a la red para que genere texto de forma invertida, es decir, de atrás para adelante. Entonces, luego de modificar la última palabra (o sílaba) de un verso, se comienzan a generar las sílabas siguientes a partir de ella, lo que resultó en una mejora notable respecto al problema mencionado.
+#### Observaciones
+Al momento, se detectaron los siguientes problemas con el modelo sobre los que se apunta a seguir trabajando:
+* **El dataset no es lo suficientemente grande y tiene gran variedad de palabras distintas.** Si bien el dataset tiene un tamaño equivalente a otros tomados como ejemplo para generar letras de canciones, el vocabulario de este es muy variado, lo que resulta en que muchas palabras tengan pocas apariciones. Esto causa que si preprocesamos el texto para filtrar palabras que aparezcan con cierta frecuencia, por ejemplo 3 veces, se reduzca el dataset de forma significativa (mas del 50%). Si bien este problema se reduce notablemente cuando el modelo predice en función de sílabas, resulta clave avanzar sobre esto, en principio, agrandando el dataset.
+* **En el entrenamiento se observa un overfitting muy alto.** La diferencia entre el accuracy entre el set de entrenamiento y de validación son muy grandes, llegando a tener el valor de 0.9 en el primero, y valores no mayores de 0.6 en el segundo. Esto estimamos que probablemente se deba a lo observado en el primer punto, porque se ha intentado mitigar disminuyendo la complejidad de la red o a través del uso de capas de dropout sin obtener resultados significativamente mejores.
+* **La función de rima no considera la pronunciación de palabras en inglés.** Esto sucede porque la rima se realiza en función de las vocales de la palabra y no en función de su fonética. Para esto, una solución propuesta a implementar es la de reemplazar palabras en inglés de uso común en el dataset por su pronunciación en español (como freestyle por fristail, o beat por bit) o mejorar la implementación de la función que detecta la rima.
