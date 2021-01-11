@@ -68,6 +68,29 @@ Luego, se genera una linea inicial y cada linea siguiente se elige primero gener
 * Que su última palabra rime con la última palabra de la linea anterior (en función de un diccionario de rimas en inglés, pero que de cualquier forma resultó medianamente efectivo en español).
 
 Los versos generados de esta forma riman y al trabajar con palabras no genera palabras inexistentes, sin embargo, no guardan relación alguna entre ellos o sus rimas.
+```
+Madre de Dios, la que te salí de la saga
+Que yo fluyo en la liga
+Porque sabes que ya te apremia
+Por eso que no te envidia
+Tú sabes que ya te agobia
+Es claro que no es tabla
+No te lo voy a ser más mala
+Dímelo, dice que viene siempre se calla
+Hay weás que no me hace la fila
+Y si me ponen un tema?
+Pero parece que no me gana
+Sí que te voy a dejar de pana
+Yo no soy de tu hermana
+No me meto en la cara
+Es normal que ya no para
+Viene con rap no se compara
+Ese que hace en la primera
+Convertí las cosas que me tira
+Porque parece que este se aferra
+Yo creo que con la guitarra
+Que yo fluyo en la guerra
+```
 
 ---
 
