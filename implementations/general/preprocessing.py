@@ -15,7 +15,7 @@ def get_text(dataset_path, token_level):
     
     if token_level == 'S' or token_level == 'W':
         for s in ['\n','?','¿',',','.','"',':',"'",'(',')']:
-            text = text.replace(s,' '+s+' ')
+            corpus = corpus.replace(s,' '+s+' ')
 
     corpus = unicodedata.normalize('NFC', corpus)
     return corpora
@@ -42,8 +42,8 @@ def tokenize(TOKEN_LEVEL, corpus, bpemb):
     elif (TOKEN_LEVEL == 'W') or (TOKEN_LEVEL == 'S'):
         symbols = ['\n','?','¿',',','.','"',':',"'",'(',')']
         for s in symbols:
-            text = text.replace(s,' '+s+' ')
-        tokenized_text = [w for w in text.split(' ') if (w.strip() != '' or w == '\n') and w != "(...)"]
+            corpus = corpus.replace(s,' '+s+' ')
+        tokenized_text = [w for w in corpus.split(' ') if (w.strip() != '' or w == '\n')]
 
         if TOKEN_LEVEL == 'S':
             s = silabizer()
@@ -60,7 +60,7 @@ def tokenize(TOKEN_LEVEL, corpus, bpemb):
     tokens = set(tokenized_text)
     return tokens, tokenized_text
 
-def preprocess(dataset_path, experiment_path, TOKEN_LEVEL, SEQ_LEN, bpemb):
+def preprocess(dataset_path, experiment_path, TOKEN_LEVEL, SEQ_LEN, bpemb = None):
     '''From a corpus in dataset_path generates dictionaries word_indices, indices_word, a list of tokens and data for training (sentences, next_words)'''
     corpus = get_text(dataset_path, TOKEN_LEVEL)
     corpus = unicodedata.normalize('NFC', corpus)

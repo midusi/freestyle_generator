@@ -8,7 +8,7 @@ def generator(sentence_list, next_word_list, batch_size, tokens, word_indices):
             x = sentence_list[i*batch_size:(i+1)*batch_size]
             x = np.array([np.array(xi) for xi in x])
             y = next_word_list[i*batch_size:(i+1)*batch_size]
-            y = [[1 if i == word_indices[token] else 0 for i in range(len(tokens))] for token in y]
+            y = [[1 if i == word_indices[str(token)] else 0 for i in range(len(tokens))] for token in y]
             y = np.array([np.array(yi) for yi in y])
             yield x, y
 

@@ -2,9 +2,9 @@ from keras.models import Sequential
 from keras.layers import Embedding, Flatten, Dense, Bidirectional, LSTM, Dropout, Activation
 
 def getModel(exp, tokens, bpemb = None):
-    if exp.MODEL == 'BPELSTM':
+    if exp.MODEL == 'B':
         return getBPEmbModel(exp.EMB_VS, exp.EMB_DIM, bpemb.vectors, exp.SEQ_LEN, len(tokens), 256, emb_trainable = exp.EMB_TRAIN)
-    elif exp.MODEL == 'LSTM':
+    elif exp.MODEL == 'L':
         return getBasicLSTMModel(exp.SEQ_LEN, len(tokens), 256)
 
 def getBPEmbModel(emb_vs, emb_dim, emb_weights, seq_len, num_tokens, lstm_size, emb_trainable = False):
@@ -29,7 +29,7 @@ def getBasicLSTMModel(seq_len, num_tokens, lstm_size):
 
     # define the model
     model = Sequential()
-    model.add(Bidirectional(LSTM(lstm_size)))
+    model.add(Bidirectional(LSTM(lstm_size), input_shape=(seq_len, num_tokens)))
     model.add(Dropout(0.2))
     model.add(Dense(num_tokens))
     model.add(Activation('softmax'))
