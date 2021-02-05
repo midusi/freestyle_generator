@@ -1,0 +1,91 @@
+ Me estoy buscando el billete, baby
+Tengo la cancha encendida, baby
+Todos esos que me tiran ni los vi
+Cada día se eleva más mi ki
+
+Estamos muy arriba, no existe la gravedad
+Tu gato quiere que mate su curiosidad
+A tu gata le gusta cómo le meto al trap
+Y quiere que la lleve conmigo a vacilar
+
+Quiero comprarme una nave
+Pa' ganarles, ellos ya saben
+Papi, sabes que soy clave
+Del éxito, tengo la llave
+
+Y yo quiero comprarme una nave
+Pa' ganarles, ellos ya saben
+Papi, sabes que soy clave
+Y lo quiero, quiero ver
+
+Comprarme una nave que sea veloz
+Una nave donde que entremos los dos
+Pa' con los millones escaparnos
+Robarnos el oro y quedarnos con to'
+
+Comprarme una nave que sea veloz
+Una nave donde que entremos los dos
+Pa' con los millones escaparnos
+Robarnos el oro y quedarnos con to'
+
+Millones, millones
+Todas las situaciones son buenas para pensar en los millones
+Habilidades, condiciones
+Y tengo municiones pa' todo el que me traicione
+
+Siempre fue una trampa ese papel de buena
+Todo fue un plan pa' quedarme con tu cena
+Tu gata, tu premio, tu droga, tu nena
+Tu puesto, tu talento y tu cadena
+
+Él me dice: Mami, ven, mami, ven
+Movete para mí, que tengo cien, tengo cien (cash, cash, cash)
+Es que acaso no me ven, no me ven
+Yo no soy tu Barbie y, papi, vos no sos mi Ken, no me ven
+
+Le cumplí su fantasía
+Me dice: Te quiero mía
+Le hago lo que no le hacían
+Dispara por mí, por mí da la vida (prra)
+
+Le cumplí su fantasía
+Me dice: Te quiero mía
+Le hago lo que no le hacían
+Papi, ahora voy a
+
+Comprarme una nave que sea veloz
+Una nave donde que entremos los dos
+Pa' con los millones escaparnos
+Robarnos el oro y quedarnos con to'
+
+Comprarme una nave que sea veloz
+Una nave donde que entremos los dos
+Pa' con los millones escaparnos
+Robarnos el oro y quedarnos con to'
+
+Papi, dime si vas a matar por nuestro amor
+Yo no quiero nada a media, así no soy yo
+No me mientan, no me rompan nunca el corazón
+Que soy buena en todo, pero vengándome la mejor
+
+Como aquel que lidera traficando
+Nadie entiende bien lo que está pasando
+Que la nena los está castigando
+Que de este desastre yo estoy al mando
+
+A mí no me gana na', no me gana na'
+Yeh
+No me gana na', no me gana nada
+Porque ahora voy a
+
+Comprarme una nave que sea veloz
+Una nave donde que entremos los dos
+Pa' con los millones escaparnos
+Robarnos el oro y quedarnos con to'
+
+Comprarme una nave que sea veloz
+Una nave donde que entremos los dos
+Pa' con los millones escaparnos
+Robarnos el oro y quedarnos con to'
+
+ 
