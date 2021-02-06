@@ -16,13 +16,7 @@ def generator(sentence_list, next_word_list, batch_size, TOKEN_LEVEL, tokens, wo
             y = np.array([np.array(yi) for yi in y])
             yield x, y
 
-def train(model, experiment_path, BATCH_SIZE, EPOCHS, tokens, TOKEN_LEVEL, word_indices):
-
-    with open(experiment_path + 'sentences', 'rb') as sentences_file:
-        sentences = pickle.load(sentences_file)
-
-    with open(experiment_path + 'next_words', 'rb') as next_words_file:
-        next_words = pickle.load(next_words_file)
+def train(model, experiment_path, BATCH_SIZE, EPOCHS, tokens, TOKEN_LEVEL, word_indices, sentences, next_words):
 
     history = model.fit(
         generator(sentences, next_words, BATCH_SIZE, TOKEN_LEVEL, tokens, word_indices),

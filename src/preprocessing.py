@@ -70,25 +70,13 @@ def preprocess(dataset_path, experiment_path, TOKEN_LEVEL, SEQ_LEN, bpemb = None
     word_indices = dict((c, i) for i, c in enumerate(tokens))
     indices_word = dict((i, c) for i, c in enumerate(tokens))
 
-    save_dict(word_indices, experiment_path + 'word_indices.json')
-    save_dict(indices_word, experiment_path + 'indices_word.json')
-
     sentences, next_words = shape_text(SEQ_LEN, tokenized_text, TOKEN_LEVEL, word_indices)
-
-    with open(experiment_path + 'tokens', 'wb') as tokens_file:
-        pickle.dump(tokens, tokens_file)
-
-    with open(experiment_path + 'sentences', 'wb') as sentences_file:
-        pickle.dump(sentences, sentences_file)
-
-    with open(experiment_path + 'next_words', 'wb') as next_words_file:
-        pickle.dump(next_words, next_words_file)
-
+    
     print()
     print('El texto tokenizado consta de {} tokens, con {} tokens distintos'.format(len(tokenized_text), len(tokens)))
     items_preview = 50
     print('Previsualización de los primeros {} tokens: {}'.format(items_preview, tokenized_text[:items_preview]))
-    print('Ejemplos de conjunto de entrenamiento: {}'.format(list(zip(next_words[:5], sentences[:5]))))
+    print('En total hay {} ejemplos en el conjunto de entrenamiento, algunos de ellos: {}'.format(len(sentences), list(zip(sentences[:5], next_words[:5]))))
     print()
 
     return word_indices, indices_word, tokens, sentences, next_words
