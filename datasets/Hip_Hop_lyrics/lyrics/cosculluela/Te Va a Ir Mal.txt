@@ -1,4 +1,4 @@
- Yo!
+Yo!
 Echo!
 
 Yo sigo en la mirilla de castillas a villas
@@ -103,5 +103,3 @@ Esta es pa' mis títeres de buena vista!
 Tu sabes como la hacemos, ¿ah?
 Yo!
 Buddha!
-
- 

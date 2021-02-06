@@ -1,4 +1,4 @@
- Americanos son los Venezolanos
+Americanos son los Venezolanos
 Los Colombianos, los Peruanos, los Ecuatorianos
 Americanos son los Chilenos, los Haitianos
 Brasileros, Argentinos, Mexicanos
@@ -57,5 +57,3 @@ Americanos son los Salvadoreños
 Guatemantecos, Jamaiquinos y Cubanos
 Americanos no son solo los del Norte de mi America
 Si no los que a nuestra America Amamos
-
- 

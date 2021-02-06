@@ -1,4 +1,4 @@
- Duko, zanto, oniria
+Duko, zanto, oniria
 Yo no sé
 Yo no sé
 Yo no sé
@@ -47,5 +47,3 @@ I don't know, no
 (Duko, zanto)
 I don't know, no, oh
 I don't know, no
-
- 

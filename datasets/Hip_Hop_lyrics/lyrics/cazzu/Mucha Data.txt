@@ -1,4 +1,4 @@
- (Hola, hola)
+(Hola, hola)
 Te habla mi contestadora
 Si no te atiendo el teléfono
 Seguro que no quiero hablar con vos
@@ -82,5 +82,3 @@ Seguro que no quiero hablar con vos
 Y de todas la mejor
 En tu vida no vas a conocer
 Ninguna pibita como yo
-
- 

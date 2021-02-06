@@ -1,4 +1,4 @@
- (Cómo estás?)
+(Cómo estás?)
 (Estás sola?)
 (Hey)
 
@@ -55,5 +55,3 @@ Lo haga como yo
 
 (Ponme otra vez, mami, esa mirada)
 (Te siento toda mojada)
-
- 

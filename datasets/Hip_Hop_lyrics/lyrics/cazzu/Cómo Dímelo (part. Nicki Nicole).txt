@@ -1,4 +1,4 @@
- (¿Cómo? ¡Dímelo!)
+(¿Cómo? ¡Dímelo!)
 (¿Cómo, cómo? ¡Dímelo!)
 (¿Cómo? ¡Dímelo!)
 (¿Cómo, cómo? ¡Dímelo!)
@@ -76,5 +76,3 @@ Ay, dímelo, dímelo, dímelo
 Y dímelo, dímelo, dímelo
 Ay, dímelo
 Ay, dime, ay, dime, ay, dímelo
-
- 

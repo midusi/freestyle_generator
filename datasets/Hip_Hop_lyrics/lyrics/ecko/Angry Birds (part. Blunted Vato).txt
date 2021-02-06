@@ -1,4 +1,4 @@
- Swing, swing
+Swing, swing
 A la pista le pongo swing
 Bajándolos como Angry Birds
 Pif, pif, pif, pif
@@ -70,5 +70,3 @@ Swing, swing
 A la pista le pongo swing
 Bajándolos como Angry Birds
 Pif, pif, pif, pif
-
- 

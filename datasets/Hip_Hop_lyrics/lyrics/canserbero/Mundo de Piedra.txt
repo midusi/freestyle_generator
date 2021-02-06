@@ -1,4 +1,4 @@
- Es tres de abril a las dos de la mañana
+Es tres de abril a las dos de la mañana
 Carlos debe patrullar de noche toda la semana
 Tiene un hijo que ama y una esposa que finge quererla
 Los dos viven en un mundo de piedra
@@ -83,5 +83,3 @@ We are living in a stone world
 My heart is made of stone
 Your heart is made of stone
 We are living in a stone world
-
- 

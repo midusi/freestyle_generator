@@ -1,4 +1,4 @@
- Háblame de dinero, soy tremendo negociante
+Háblame de dinero, soy tremendo negociante
 Rapero más cabrón que yo, nunca se ha visto
 Háblame de dinero, soy tremendo negociante
 Rapero más cabrón que yo, nunca se ha visto
@@ -81,5 +81,3 @@ Este 20 de Septiembre se paraliza la isla
 Jajajaja
 Yo se que ustedes no se lo esperaban
 Prrra
-
- 

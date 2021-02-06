@@ -1,4 +1,4 @@
- El periódico, el café, la merienda en la lonchera
+El periódico, el café, la merienda en la lonchera
 La bendición con fe, el beso pa’ la abuela
 La camioneta full, los chamos pa’ la escuela
 Porque no sirven para comer los pollo en mi cazuela
@@ -76,5 +76,3 @@ Muy buenas noche, barrio
 Muy buenas noche, barrio 
 Muy buenas noche, barrio 
 Muy buenas noche, barrio
-
- 

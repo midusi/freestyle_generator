@@ -1,4 +1,4 @@
- Yo!
+Yo!
 Esto es pa' ti mi amigo
 Mi mejor amigo
 Tu ke siempre estas conmigo
@@ -88,5 +88,3 @@ En un mundo de odio
 Y lleno de olvido
 Tu eres mi destino
 Yo se ke tu me salvaras!!
-
- 

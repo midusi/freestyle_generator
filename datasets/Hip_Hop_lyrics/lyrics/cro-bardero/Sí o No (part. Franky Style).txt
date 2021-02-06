@@ -1,4 +1,3 @@
- 
 Vos decime: sí o no, sí o no, sí o no
 Vos decime: sí o no, sí o no, sí o no
 Vos decime: sí o no, sí o no, sí o no
@@ -59,5 +58,3 @@ Vos decime: sí o no, sí o no, sí o no
 Vos decime: sí o no, sí o no, sí o no
 Vos decime: sí o no, sí o no, sí o no
 Te espero la noche entera, mujer
-
- 

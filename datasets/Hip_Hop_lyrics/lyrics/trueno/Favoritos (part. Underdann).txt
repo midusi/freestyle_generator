@@ -1,4 +1,4 @@
- Esto es lo que necesito
+Esto es lo que necesito
 Sé que soy tu favorito
 Lo conseguí yo solito
 Y ahora me quieren bajar
@@ -83,5 +83,3 @@ Estoy bien en mi lugar
 
 (Esto es lo que necesito)
 (Lo conseguí yo solito)
-
- 

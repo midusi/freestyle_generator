@@ -1,4 +1,4 @@
- Mi casa está en el centro, mi hijo con mis padres
+Mi casa está en el centro, mi hijo con mis padres
 Van cien días sin verlo, afuera un virus arde
 Y yo no aguanto más, y vos estás tan grande
 Ya me contó mamá, igualito a tu padre
@@ -33,5 +33,3 @@ Mi casa está en el centro (centro), mi hijo con mis padres (padres)
 Van cien días sin verlo (verlo), afuera un virus arde (arde)
 Y yo no aguanto más, y vos estás tan grande (grande)
 Ya me contó mamá (mamá), igualito a tu padre
-
- 
