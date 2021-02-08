@@ -11,11 +11,11 @@ const id = 'letras.asp?letras=' + process.argv[3]
 
 logError = error => console.log(error)
 
-getDocument = html => (new JSDOM(html)).window.document
+getDocument = html => new JSDOM(html).window.document
 
 // Obtiene todos los links de una pagina de artista
 getLinksInPage = document => Array.from(document.querySelectorAll('.listado-letras a'))
-  .filter((a, i) => (i % 2) == 0)
+  .filter((a, i) => i % 2 == 0)
   .map(a => a.href)
 
 // Obtiene la letra de una cancion
@@ -25,7 +25,7 @@ getLyrics = document => Array.from(document.querySelectorAll('#letra p'))
 
 getTitle = document => document.querySelector('.info h1').textContent
 
-getSongLinks = (url, path) => axios.get(url).then(
+getSongLinks = url, path => axios.get(url).then(
     response => {
         links = getLinksInPage(getDocument(response.data))
         links.forEach(link => {
@@ -44,6 +44,6 @@ getSongLinks = (url, path) => axios.get(url).then(
     }
 ).catch(logError)
 
-if (!fs.existsSync("./lyrics")) fs.mkdir("lyrics", logError)
-if (!fs.existsSync("./lyrics" + artist)) fs.mkdir("lyrics" + artist, logError)
+if !fs.existsSync("./lyrics") fs.mkdir("lyrics", logError)
+if !fs.existsSync("./lyrics" + artist) fs.mkdir("lyrics" + artist, logError)
 getSongLinks(baseUrl + id, "./lyrics" + artist + "/")   

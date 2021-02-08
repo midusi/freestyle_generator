@@ -15,7 +15,7 @@ function download(filename, text) {
 letra = Array.from(document.getElementById("mw-content-text").children).filter(
     node => node.tagName === "P" || node.tagName === "OL"
 ).map(
-   x => (x.tagName === "P") ? "\n\n" : x.innerText
+   x => x.tagName === "P" ? "\n\n" : x.innerText
 ).reduce((rest,x) => rest + x)
 
 title = document.getElementById("PageHeader").children[0].children[1].innerText

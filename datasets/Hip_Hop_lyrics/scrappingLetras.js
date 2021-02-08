@@ -10,10 +10,10 @@ const artist = '/' + process.argv[2]
 
 logError = error => console.log(error)
 
-getDocument = html => (new JSDOM(html)).window.document
+getDocument = html => new JSDOM(html).window.document
 
 // Obtiene todos los links de una pagina de artista en forma de {name: nombreCancion, link: enlace}
-getLinksInPage = document => Array.from(document.querySelectorAll('.song-name')).map(a => ({name: a.text, link: a.href}))
+getLinksInPage = document => Array.from(document.querySelectorAll('.song-name')).map(a => {name: a.text, link: a.href})
 
 // Obtiene la letra de una cancion
 getLyrics = document => document.getElementsByClassName('cnt-letra p402_premium')[0].innerHTML
@@ -23,7 +23,7 @@ getLyrics = document => document.getElementsByClassName('cnt-letra p402_premium'
   .replace(/<br>/g,'\n')
   .replace(/\n\n\n/g,'\n\n')
 
-getSongLinks = (url, path) => axios.get(url).then(
+getSongLinks = url, path => axios.get(url).then(
     response => {
         links = getLinksInPage(getDocument(response.data))
         links.forEach(({name, link}) => {
@@ -40,6 +40,6 @@ getSongLinks = (url, path) => axios.get(url).then(
     }
 ).catch(logError)
 
-if (!fs.existsSync("./lyrics")) fs.mkdir("lyrics", logError)
-if (!fs.existsSync("./lyrics" + artist)) fs.mkdir("lyrics" + artist, logError)
+if !fs.existsSync("./lyrics") fs.mkdir("lyrics", logError)
+if !fs.existsSync("./lyrics" + artist) fs.mkdir("lyrics" + artist, logError)
 getSongLinks(baseUrl + artist, "./lyrics" + artist + "/")   
