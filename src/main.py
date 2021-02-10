@@ -49,7 +49,8 @@ def init(experiments_path):
 
 
 path = 'D:\\Documentos\\GitHub\\freestyle_generator\\'
-dataset_path = path + 'datasets\\freestyle_lyrics\\lyrics\\'
+#dataset_path = path + 'datasets\\freestyle_lyrics\\lyrics\\'
+dataset_path = path + 'datasets\\'
 experiments_path = path + 'experiments\\'
 
 exp, experiment_path, prep_path = init(experiments_path)
@@ -61,7 +62,7 @@ else:
 
 if exp.EPOCHS == 0:
     # PREPROCESSING
-    word_indices, indices_word, tokens, sentences, next_words = preprocess(dataset_path, experiment_path, exp.TOKEN_LEVEL, exp.SEQ_LEN, bpemb)
+    word_indices, indices_word, tokens, sentences, next_words = preprocess(dataset_path, exp.TOKEN_LEVEL, exp.SEQ_LEN, bpemb)
 
     save_dict(word_indices, prep_path + 'word_indices.json')
     save_dict(indices_word, prep_path + 'indices_word.json')
@@ -105,7 +106,7 @@ else:
     while op != 5:
         if op == 1:
             # PREPROCESSING
-            word_indices, indices_word, tokens, sentences, next_words = preprocess(dataset_path, experiment_path, exp.TOKEN_LEVEL, exp.SEQ_LEN, bpemb)
+            word_indices, indices_word, tokens, sentences, next_words = preprocess(dataset_path, exp.TOKEN_LEVEL, exp.SEQ_LEN, bpemb)
 
             save_dict(word_indices, prep_path + 'word_indices.json')
             save_dict(indices_word, prep_path + 'indices_word.json')

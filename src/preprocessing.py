@@ -3,7 +3,7 @@ import glob, unicodedata, pickle, io
 from utils import save_dict
 from Syllabizer import silabizer
 
-def get_text(dataset_path, token_level):
+def get_text(dataset_path):
     '''Returns corpus from all txt files stored in dataset_path'''
     files = glob.glob(dataset_path + '/**/*.txt', recursive=True)
     corpora = ''
@@ -12,10 +12,6 @@ def get_text(dataset_path, token_level):
         with io.open(f, 'r', encoding='utf-8') as fc:
             corpus = fc.read().lower().replace('\xa0', ' ').replace('-','').replace('\ufeff','')
             corpora += corpus
-    
-    if token_level == 'S' or token_level == 'W':
-        for s in ['\n','?','¿',',','.','"',':',"'",'(',')']:
-            corpus = corpus.replace(s,' '+s+' ')
 
     corpus = unicodedata.normalize('NFC', corpus)
     return corpora
@@ -40,7 +36,7 @@ def tokenize(TOKEN_LEVEL, corpus, bpemb):
         tokenized_text = [item for sublist in tokenized_text for item in sublist]
 
     elif (TOKEN_LEVEL == 'W') or (TOKEN_LEVEL == 'S'):
-        symbols = ['\n','?','¿',',','.','"',':',"'",'(',')']
+        symbols = ['\n','?','¿',',','.','"',':','(',')']
         for s in symbols:
             corpus = corpus.replace(s,' '+s+' ')
         tokenized_text = [w for w in corpus.split(' ') if (w.strip() != '' or w == '\n')]
@@ -56,16 +52,21 @@ def tokenize(TOKEN_LEVEL, corpus, bpemb):
                     flat_list.append('\ ')
             tokenized_text = flat_list
     
+    return tokenized_text
+
+def preprocess(dataset_path, TOKEN_LEVEL, SEQ_LEN, bpemb = None):
+    '''From a corpus in dataset_path generates dictionaries word_indices, indices_word, a list of tokens and data for training (sentences, next_words)'''
+    corpus = get_text(dataset_path)
+    corpus = unicodedata.normalize('NFC', corpus)
+    corpus = corpus.lower()
+    
+    if TOKEN_LEVEL == 'S' or TOKEN_LEVEL == 'W':
+        for s in ['\n','?','¿',',','.','"',':',"'",'(',')']:
+            corpus = corpus.replace(s,' '+s+' ')
+
+    tokenized_text = tokenize(TOKEN_LEVEL, corpus, bpemb)
     print(tokenized_text[:100])
     tokens = set(tokenized_text)
-    return tokens, tokenized_text
-
-def preprocess(dataset_path, experiment_path, TOKEN_LEVEL, SEQ_LEN, bpemb = None):
-    '''From a corpus in dataset_path generates dictionaries word_indices, indices_word, a list of tokens and data for training (sentences, next_words)'''
-    corpus = get_text(dataset_path, TOKEN_LEVEL)
-    corpus = unicodedata.normalize('NFC', corpus)
-
-    tokens, tokenized_text = tokenize(TOKEN_LEVEL, corpus, bpemb)
 
     word_indices = dict((c, i) for i, c in enumerate(tokens))
     indices_word = dict((i, c) for i, c in enumerate(tokens))
