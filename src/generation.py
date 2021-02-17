@@ -1,9 +1,5 @@
 import numpy as np
-from bpemb import BPEmb
-
-from Syllabizer import silabizer
-
-
+from rima import rima
 
 def sample(preds, temperature=1.0):
     '''Helper function to sample an index from a probability array'''
@@ -14,48 +10,56 @@ def sample(preds, temperature=1.0):
     probas = np.random.multinomial(1, preds, 1)
     return np.argmax(probas)
 
-def generate(bpemb, model, TOKEN_LEVEL, indices_word, word_indices, SEQ_LEN, TEMP, seed):
+def update_rhyme(preds, word, tokenizer):
+    for index in range(tokenizer.get_vocab_size()):
+        # if(preds[index]) > 0.8: #Modificar a verdaderas candidatas a sílaba
+        rhyme = rima(word, tokenizer.id_to_token(index))
+        preds[index] += (1.0 - preds[index])*(0.8 if rhyme == 'C' else 0.6 if rhyme == 'A' else 0)
+    return preds
 
-    if TOKEN_LEVEL == 'B':
-        text = bpemb.encode_ids(seed)
-    elif TOKEN_LEVEL == 'W' or TOKEN_LEVEL == 'S':
-        text = seed.split()
-        if TOKEN_LEVEL == 'S':
-            s = silabizer()
-            text = list(map(s, text))
-            flat_list = []
-            for i, word in enumerate(text):
-                for sylab in word:
-                    flat_list.append(sylab)
-                if (word != ["\n"] and (i+1 < len(text) and text[i+1] != ["\n"])):
-                    flat_list.append('\ ')
-            text = flat_list
+def generate(model, seed, tokenizer, sequence_len, temp, amount, use_emb):
+    encoding = tokenizer.encode(seed)
+    ids = list(reversed(encoding.ids))
 
-    text = list(reversed(text))
+    last_word = ''
+    for token in reversed(encoding.tokens):
+        last_word += token
+        if '▁' in token:
+            break
+    last_word = last_word[1:]
 
-    for _ in range(100):
+    line_count, verse_count = 0, 0
+    is_last_word = False
+    while verse_count < amount:
 
-        if TOKEN_LEVEL != 'B':
-            inp = np.zeros((1, SEQ_LEN, len(indices_word)))
-            for t, word in enumerate(text[-SEQ_LEN:]):
-                inp[0, t, word_indices[word]] = 1.
+        if not use_emb:
+            inp = np.zeros((1, sequence_len, tokenizer.get_vocab_size()))
+            for t, idx in enumerate(ids[-sequence_len:]):
+                inp[0, t, idx] = 1
         else:
-            inp = text[-SEQ_LEN:]
+            inp = np.array(ids[-sequence_len:])
 
         out = model.predict(inp)[0]
-        next_id = sample(out, TEMP)
-        #next_id = np.argmax(out)
-        
-        next_id = indices_word[str(next_id)]
-        text.append(next_id)
-        
-    text = list(reversed(text))
+        if is_last_word:
+            out = update_rhyme(out, last_word, tokenizer)
 
-    if TOKEN_LEVEL == 'B':
-        text = bpemb.decode_ids(text)
-    elif TOKEN_LEVEL == 'S':
-        text = ''.join(text)
-    elif TOKEN_LEVEL == 'W':
-        text = ' '.join(text)
+        next_id = sample(out, temp)
 
+        if is_last_word:
+            is_last_word = False
+            last_word = tokenizer.id_to_token(next_id)
+
+        if tokenizer.id_to_token(next_id) == '[SEP]':
+            is_last_word = True
+            if line_count < 3:
+                line_count += 1
+            else:
+                ids.append(tokenizer.token_to_id('[SEP]'))
+                line_count = 0
+                verse_count += 1
+        
+        ids.append(next_id)
+
+    text = ''.join(reversed(list(map(lambda i: tokenizer.id_to_token(i), ids)))).replace('[SEP]','\n').replace('▁', ' ')
+        
     return text
