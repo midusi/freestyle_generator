@@ -86,8 +86,11 @@ while op != 3:
         # GENERATION
         temp = int(input('Temperature (1): ') or '1')
         amount = int(input('Verse amount (5): ') or '5')
-        seed = 'voy a ser el que en el'
-        text = generate(model, seed, tokenizer, exp.SEQ_LEN, temp, amount, exp.MODEL == 'E')
+        seed = 'me voy yendo'
+        with open(dataset_path + 'rhymes.json', 'r') as rhymes_dict_file:
+            rhymes_dict = json.load(rhymes_dict_file)
+
+        text = generate(model, seed, tokenizer, exp.SEQ_LEN, temp, amount, rhymes_dict, exp.MODEL == 'E')
         
         with open(generation_path + 'generated_{}epochs.txt'.format(exp.epochs_to_string()), 'w', encoding='utf-8') as generated_file:
             generated_file.write(text)

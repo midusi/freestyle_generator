@@ -67,9 +67,19 @@ class silabizer():
     def __call__(self, word):
         return self.split(char_line(word))
 
+pronunciacion = {
+    'flow': 'flóu',
+    'freestyle': 'fristail',
+    'disney': 'dísney',
+    'baby': 'beibi'
+}
+
 def vocales(p):
-    v = ['a', 'e', 'i', 'o', 'u']
-    return [c for c in p if c in v]
+    v = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú']
+    vocs = [c for c in p if c in v]
+    if len(p) > 0 and p[-1] == 'y':
+        vocs.append('y')
+    return vocs
 
 def desde_tonica(palabra):
     'Devuelve los caracteres de palabra a partir de la sílaba tónica'
@@ -85,10 +95,11 @@ def desde_tonica(palabra):
     else:
         for idx, c in enumerate(reversed(silabas[-1].word)):
             if c in ['a', 'e', 'i', 'o', 'u']:
-                return silabas[-1].word[-idx:]
+                return silabas[-1].word[-(idx + 1):]
     return ''
 
 def rima(p1, p2):
     'Devuelve C si es una rima consonante, A si es una rima asonante o X si las palabras no riman'
+    p1, p2 = pronunciacion.get(p1, p1),  pronunciacion.get(p2, p2)
     dt1, dt2 = desde_tonica(p1), desde_tonica(p2)
-    return 'C' if dt1 == dt2 else 'A' if vocales(dt1) == vocales(dt2) else 'X'
+    return 'C' if dt1 == dt2 else 'A' if (vocales(dt1) != '' and vocales(dt1) == vocales(dt2)) else 'X'
