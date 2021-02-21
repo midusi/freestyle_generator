@@ -71,11 +71,13 @@ pronunciacion = {
     'flow': 'flóu',
     'freestyle': 'fristail',
     'disney': 'dísney',
-    'baby': 'beibi'
+    'baby': 'beibi',
+    'destroy': 'distróy'
 }
 
 def vocales(p):
-    v = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú']
+    v = ['a', 'e', 'i', 'o', 'u']
+    p = p.replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u')
     vocs = [c for c in p if c in v]
     if len(p) > 0 and p[-1] == 'y':
         vocs.append('y')
