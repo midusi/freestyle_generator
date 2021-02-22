@@ -9,6 +9,18 @@ from generation import generate
 from Experiment import Experiment
 
 
+def store_history(history_path, history):
+    if not os.path.isfile(history_path):
+        with io.open(history_path, 'w') as history_file:
+            json.dump(history.history, history_file)
+    else:
+        with io.open(history_path, 'r') as history_file:
+            old_history = json.load(history_file)
+        for key in old_history.keys():
+            old_history[key] = old_history[key] + history.history[key]
+        with io.open(history_path, 'w') as history_file:
+            json.dump(old_history, history_file)
+
 def init(experiments_path):
     load = (input('Load experiment? (Y-N) (N): ' ) or 'N')
     if (load  == 'Y' or  load == 'y'):
@@ -54,6 +66,7 @@ tokenizer = Tokenizer.from_file(dataset_path + 'tokenizer-bpe-{}.json'.format(ex
 if exp.EPOCHS_TOTAL == 0 and exp.EPOCHS_FREE == 0:
     model = getBasicLSTMModel(exp.SEQ_LEN, tokenizer.get_vocab_size()) if exp.MODEL == 'L' else getEmbLSTMModel(exp.SEQ_LEN, tokenizer.get_vocab_size())
 else:
+    print('Model loaded')
     model = keras.models.load_model(weights_path + 'model_{}.h5'.format(exp.epochs_to_string()))
 model.summary()
 
@@ -70,14 +83,16 @@ while op != 3:
             corpus = corpus_file.read()
 
         encoder = Encoding.merge(tokenizer.encode_batch(list(filter(lambda line: line, corpus.split('\n')))))
-        sentences, next_words = shape_text(exp.SEQ_LEN, encoder.ids)
+        sentences, next_words, sentences_test, next_words_test = shape_text(exp.SEQ_LEN, encoder.ids)
 
         EPOCHS = int(input('Epochs to train: '))
-        history = train(model, 256, EPOCHS, sentences, next_words, tokenizer.get_vocab_size(), exp.MODEL == 'E')
+        history = train(model, 256, EPOCHS, sentences, next_words, sentences_test, next_words_test, tokenizer.get_vocab_size(), exp.MODEL == 'E')
         if (DS == 'A' or DS == 'a'):
             exp.EPOCHS_TOTAL += EPOCHS
+            store_history(experiment_path + 'history_a.json', history)
         else:
             exp.EPOCHS_FREE += EPOCHS
+            store_history(experiment_path + 'history_f.json', history)
         model.save(weights_path + 'model_{}.h5'.format(exp.epochs_to_string()))
 
         with io.open(experiment_path + 'exp_file.json', 'w') as exp_file:

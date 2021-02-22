@@ -15,10 +15,12 @@ def generator(sentence_list, next_word_list, batch_size, vocab_size, use_emb):
             y = np.array([np.array(yi) for yi in y])
             yield x, y
 
-def train(model, BATCH_SIZE, EPOCHS, sentences, next_words, vocab_size, use_emb):
+def train(model, BATCH_SIZE, EPOCHS, sentences, next_words, sentences_test, next_words_test, vocab_size, use_emb):
     history = model.fit(
         generator(sentences, next_words, BATCH_SIZE, vocab_size, use_emb),
         epochs=EPOCHS,
-        steps_per_epoch=int(len(sentences)/BATCH_SIZE) + 1
+        steps_per_epoch=int(len(sentences)/BATCH_SIZE) + 1,
+        validation_data=generator(sentences_test, next_words_test, BATCH_SIZE, vocab_size, use_emb),
+        validation_steps=int(len(sentences_test)/BATCH_SIZE) + 1
     )
     return history
