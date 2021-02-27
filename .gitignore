@@ -1,3 +1,5 @@
 experiments
 *.pyc
 .vscode
+*.h5
+data/rhymes.json

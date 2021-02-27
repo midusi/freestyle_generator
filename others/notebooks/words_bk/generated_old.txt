@@ -1,0 +1,62 @@
+Pares (silabas reemplazadas, silabas originales):
+[('peligro', 'ENTRADAS'), ('romano', 'ERRATAS'), ('convierta', 'ESPARTA'), ('nada', 'ESTABAS'), ('quiere', 'DESFASA'), ('repetidas', 'PENSADAS'), ('chaval', 'DEMANDA'), ('pitos', 'DETALLA'), ('drogas', 'ENCARGA'), ('pista', 'DESCALZA'), ('resentido', 'METRACA'), ('luego', '"'), ('latina', 'EPISODIO'), ('muerto', 'TERRITORIO'), ('europa', 'TERRITORIO'), ('diputado', 'TERRITORIO'), ('experiencia', 'EPISODIO'), ('encontrar', 'MUERES'), ('esparta', 'NUEVE'), ('tus', 'MUERTE'), ('turbio', 'BRAZO'), ('dominó', 'CABRO'), ('dólar', 'ANDO'), ('corazón', 'AÑO'), ('fuego', 'CAMPO'), ('púrpura', 'TAJO'), ('púrpura', 'VAMO’'), (')', 'VAMO’'), ('pena', 'MARCO'), ('constante', 'ARO'), ('levanto', 'ANDO'), ('favaloro', 'GATO'), ('brown', 'FALO'), ('desagradable', 'PABLO'), ('lindo', 'GRATO'), ('lenguaje', 'MALOS'), ('?', 'PACTO'), ('trampolin', 'TANTO'), ('derrite', 'AÑO'), ('sorpresivo', 'FRASCO'), ('varoufakis', 'ABRO'), ('lejos', 'HABLO'), ('agresivo', 'HAGO'), ('fenomenal', 'AÑO'), ('tinta', 'RABO'), ('"', 'GRATO'), ('moralista', 'BRAZOS'), ('pena', 'TRAGO'), ('ciego', 'TANGO'), ('planeta', 'CALOR'), ('dagas', 'NARRO'), ('dagas', 'LADOS'), ('elegante', 'TAJO'), ('groupie', 'ARCO'), ('tú', 'CARGO'), ('sueldo', 'GANCHO')] 
+
+hoy  día  en  que  esté  muerto  
+  y  seguro  que  se  acabaron  las  ENTRADAS  
+  porque  mi  faceta  sin  óptica  te  hace  ser  un  cometa  ,  no  cometas  más  ERRATAS  
+  el  imperio  romano  ,  bienvenido  a  ESPARTA  
+  maradona  y  ESTABAS  
+  todo  el  mundo  con  el  tuyo  es  suficiente  y  eso  es  poco  elegante  ,  se  DESFASA  
+  acá  ,  stigma  rapea  que  llega  con  lo  de  las  menores  con  sus  PENSADAS  
+  yo  represento  a  la  gente  que  DEMANDA  
+  pero  sé  lo  que  este  DETALLA  
+  a  veces  ENCARGA  
+  a  mí  es  normal  que  ya  te  DESCALZA  
+  si  quieres  que  te  cante  lento  con  un  poquito  más  METRACA  
+  tengo  cara  de  chancho  "  
+  vengo  con  rap  rap  en  EPISODIO  
+  represento  a  este  chile  hermano  TERRITORIO  
+  este  este  púrpura  TERRITORIO  
+  a  representar  a  la  escena  latina  ,  represento  a  este  chile  hermano  TERRITORIO  
+  hago  rap  rap  en  EPISODIO  
+  yo  ya  te  arranco  ,  te  MUERES  
+  en  encontrar  ,  la  verdad  que  tengo  el  don  y  hijo  de  NUEVE  
+  yo  soy  como  mi  colega  juez  de  la  MUERTE  
+  yo  te  doy  impulso  
+  disculpa  compañero  ,  te  pegué  en  el  BRAZO  
+  viene  el  CABRO  
+  mira  con  quien  ANDO  
+  de  verdad  ,  aprovecha  de  aprenderte  el  AÑO  
+  la  razón  ,  se  enfrentó  con  el  mano  del  CAMPO  
+  y  si  te  hiciera  ,  TAJO  
+  VAMO’  
+  VAMO’  
+  va  a  pasar  que  lo  hago  aquí  ,  MARCO  
+  yo  te  doy  por  el  ARO  
+  mira  con  quien  ANDO  
+  hoy  quiero  dormir  acurrucado  como  un  GATO  
+  no  me  va  a  comer  el  FALO  
+  tú  eres  conocido  como  PABLO  
+  ha  vuelto  este  ritmo  que  parece  GRATO  
+  hoy  hoy  día  para  mí  todos  esos  rivales  son  MALOS  
+  de  nuevo  ,  es  un  PACTO  
+  si  esa  chica  TANTO  
+  oh  ,  de  verdad  ,  aprovecha  de  aprenderte  el  AÑO  
+  las  palabras  yo  monto  el  atasco  ,  el  FRASCO  
+  sí  ,  de  lo  que  siento  ,  ABRO  
+  yo  lo  hago  cuando  HABLO  
+  saben  que  lo  HAGO  
+  la  verdad  es  que  de  verdad  ,  aprovecha  de  aprenderte  el  AÑO  
+  chupa  de  el  RABO  
+  flow  letal  sobre  este  puto  ritmo  ,  así  GRATO  
+  abrís  los  BRAZOS  
+  ey  ,  pa  '  meterles  en  el  TRAGO  
+  pa  '  que  nadie  lo  dejo  bailando  TANGO  
+  sé  que  hay  amor  en  todas  partes  ,  aunque  no  pueda  hablarte  ,  tu  CALOR  
+  yo  soy  el  autor  que  la  NARRO  
+  y  en  esto  yo  te  parto  el  intestino  ,  a  mí  me  chupa  un  huevo  para  el  dinero  por  meter  corazón  los  que  escucho  por  todos  LADOS  
+  y  si  te  hiciera  un  TAJO  
+  viene  como  el  ARCO  
+  mi  estilo  ,  lo  cagó  y  quedo  con  CARGO  
+  yo  vengo  con  el  rap  directo  ya  te  pego  un  GANCHO  
+  va  por  que  en  el  

@@ -22,14 +22,6 @@ def last_word_from_verse(ids, tokenizer):
         else:
             word += token
 
-def update_rhyme(preds, word, tokenizer):
-    for index in range(tokenizer.get_vocab_size()):
-        # if(preds[index]) > 0.8: # Modificar a verdaderas candidatas a sílaba
-        rhyme = rima(word, tokenizer.id_to_token(index))
-        preds[index] += (1.0 - preds[index])*(0.9 if rhyme == 'C' else 0.9 if rhyme == 'A' else 0)
-        # preds = np.exp(preds)/sum(np.exp(preds)) # Compute softmax
-    return preds
-
 def get_ids_to_np_array(use_emb, sequence_len, tokenizer):
     def ids_to_np_array(ids):
         if not use_emb:
@@ -73,7 +65,7 @@ def gen_verse(model, ids, temp, tokenizer, ids_to_np_array):
 
 def gen_stanza(model, ids, temp, tokenizer, rhymes_dict, ids_to_np_array):
     ending_words = []
-    scheme = random.choice([[0,1,2], [None, 0, 1], [None, 1, 0]])
+    scheme = random.choice([[0,1,2], [None, 0, 1], [None, 1, 0], [0, None, 1]])
     print(scheme)
     for i in range(4):
         gen_verse(model, ids, temp, tokenizer, ids_to_np_array)
@@ -90,5 +82,20 @@ def generate(model, seed, tokenizer, sequence_len, temp, amount, rhymes_dict, us
         ids.append(tokenizer.token_to_id('[SEP]'))
 
     text = ''.join(reversed(list(map(lambda i: tokenizer.id_to_token(i), ids)))).replace('[SEP]','\n').replace('▁', ' ')
-    #VER TEMA VOCALES FUERTES Y DEBILES (AUTO)
+    return text
+
+def gen_stanza_simple(model, ids, temp, tokenizer, rhymes_dict, ids_to_np_array):
+    for _ in range(4):
+        gen_verse(model, ids, temp, tokenizer, ids_to_np_array)
+
+def generate_simple(model, seed, tokenizer, sequence_len, temp, amount, rhymes_dict, use_emb):
+    encoding = tokenizer.encode(seed)
+    ids = list(reversed(encoding.ids))
+
+    for i in range(amount):
+        print(i)
+        gen_stanza_simple(model, ids, temp, tokenizer, rhymes_dict, get_ids_to_np_array(use_emb, sequence_len, tokenizer))
+        ids.append(tokenizer.token_to_id('[SEP]'))
+
+    text = ''.join(reversed(list(map(lambda i: tokenizer.id_to_token(i), ids)))).replace('[SEP]','\n').replace('▁', ' ')
     return text

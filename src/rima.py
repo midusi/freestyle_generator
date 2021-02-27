@@ -72,12 +72,20 @@ pronunciacion = {
     'freestyle': 'fristail',
     'disney': 'dísney',
     'baby': 'beibi',
-    'destroy': 'distróy'
+    'destroy': 'distróy',
+    'yeah': 'yea',
+    'hardcore': 'hárdcor',
+    'street': 'estrit',
+    'beat': 'bit',
+    'hater': 'jeiter',
+    'punchline': 'panchlain',
+    'mc': 'emcí',
+    'free': 'frí',
+    'woods': 'wuds'
 }
 
 def vocales(p):
-    v = ['a', 'e', 'i', 'o', 'u']
-    p = p.replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u')
+    v = ['a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú']
     vocs = [c for c in p if c in v]
     if len(p) > 0 and p[-1] == 'y':
         vocs.append('y')
